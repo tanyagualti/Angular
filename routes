@@ -4,7 +4,9 @@
 
 --------------------------------------------------------------------------------------------
 # in header.component.html
-<a routerLink="" routerLinkActive="active">home</a>
+<a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">home</a> 
+# [routerLinkActiveOptions]="{exact:true}"  iska use home pr always active class jo apply ho rhi thi vo remove krne k liye hota hai qki localhost/4200/ is always in url and 
+this is related to home thats why home is always active 
 <a routerLink="about" routerLinkActive="active">About</a>
 <a routerLink="user" routerLinkActive="active">User</a>
 routerLink="" is use same as href
