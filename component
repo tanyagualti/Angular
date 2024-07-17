@@ -1,0 +1,15 @@
+create component :- component is module in which directive ,filters are there
+
+create component command:- ng component generate component_name
+in_short: n c g home
+
+app component is root component there tag path is exist in index.html and this is load first in browser
+
+in app.component.html 
+<router-outlet></router-outlet>
+router outlet is imp for apply the routes in angular
+
+jo bhi app.component.html me add hoga whi browser pr show hoga toh hme component add krne pdhte hai is file me
+like this:<app-header></app-header>
+//header and footer is component and add in app.component.html file me
+<app-footer></app-footer>
