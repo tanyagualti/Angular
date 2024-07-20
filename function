@@ -1,0 +1,33 @@
+jon se bhi component me function lgana hai toh us component k component.ts file me fuction ki definition likhni hai
+aur agr global chiye toh app.compomemt.ts file me
+
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+
+fun(){
+    alert("Shop Now");
+  }
+  run(name:string){  //parameter k sath any or koi data type name likhna jruri hai otherwise error aygi 
+  // angular v 10 tk ase hi bina define kiye chal jata tha but new versions me nhi chalta bcz strict:true 
+  // bydefault ata hai that means rules strictly follow kiye jaynge
+alert(name);
+  }
+}
+
+// home.component.html
+<button (click)="fun()" id="btn">Shop Now</button>
+<button (click)="run('customers Fav Coffee')" id="about-btn">Learn More</button>
+
+
+
+
+// for see the strict:true open the file tsconfig.json    this error is not from angular this is error of typescript
+"outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,  //bcz of this line any likhna jruri hai function me agr hum ise false kr denge toh rules strictly follow nhi honge
+    "noImplicitReturns": true,
