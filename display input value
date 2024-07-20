@@ -1,0 +1,21 @@
+<input type="text" #box (keyup)="getData(box.value)" name="Username" placeholder="event types">
+<p>{{ displayVal }}</p>
+
+  displayVal='';
+getData(box:string){
+  console.warn(box);
+  this.displayVal=box;
+}
+ // yeh code uske liye hai jo bhi input me likh rhe hai jo p tag me show ho
+
+
+// display input value through button
+<input type="text" #box  name="Username" placeholder="event types">
+<button (click)="getData(box.value)">click</button>
+<p>{{ displayVal }}</p>
+  
+displayVal='';
+getData(box:string){
+  console.warn(box);
+  this.displayVal=box;
+}
