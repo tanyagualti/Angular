@@ -1,0 +1,44 @@
+<button (click)="getData()">Click me</button>
+getData(){
+  console.warn("function callec");
+}
+
+<input type="text" (keyup)="getData('hello')" name="Username" placeholder="event types">
+getData(box:string){
+  console.warn(box);
+}
+
+-- #box is id 
+<input type="text" #box (keyup)="getData(box.value)" name="Username" placeholder="event types">
+-- when i want to get the input value
+getData(box:string){
+  console.warn(box);
+}
+
+<input type="text" #box (keyup)="getData(box.name)" name="Username" placeholder="event types">
+-- when i want to get the value of name attribute user
+getData(box:string){
+  console.warn(box);
+}
+
+<input type="text" #box (keyup)="getData(box.placeholder)" name="Username" placeholder="event types">
+-- when i want to get the value of  placeholder
+getData(box:string){
+  console.warn(box);
+}
+
+<input type="text" #box (keydown)="getData(box.placeholder)" name="Username" placeholder="event types">
+-- event keydown
+
+
+<input type="text" #box (blur)="getData(box.placeholder)" name="Username" placeholder="event types">
+-- jb input s focus ht jayga toh blur event chlega
+
+<input type="text" #box (input)="getData(box.placeholder)" name="Username" placeholder="event types">
+-- input event
+
+
+<h1 (mouseover)="getData('hover')">hover on me</h1>
+-- when we hover on text
+
+<h1 (mouseleave)="getData('hover')">hover on me</h1>
