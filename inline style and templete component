@@ -1,0 +1,26 @@
+command of creating inline style component:-  ng g c name --inline-style
+generally in one component 4 files are there but in this inline style component 3 files are there .css file are not here and style are apply in component.ts
+@Component({
+  selector: 'app-imp',
+  templateUrl: './imp.component.html',
+  styles: [
+    `.hello{color:red;}`
+  ]
+})
+
+
+command of creating inline style component:-  ng g c name --inline-template
+in this 3 files are there and.html file are not here html are write in .component.ts file
+@Component({
+  selector: 'app-imp2',
+  template: `
+    <p>
+      imp2 works!
+    </p>
+  `,
+  styleUrls: ['./imp2.component.css']
+})
+
+
+//if we want to use both then command ng g c name --inline-style --inline-template
+both are apply in .component.ts
