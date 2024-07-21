@@ -1,0 +1,35 @@
+Interpolation in Angular allows you to embed expressions into your HTML templates,
+enabling dynamic content display. It's often used to bind 
+data from the component class to the view. The syntax for interpolation in Angular uses double curly braces {{ }}.
+
+in component.ts file
+title = 'Cofee-point';
+
+  getValue(){
+    return "hello";
+  }
+
+in component.html fil
+<h1>{{title}}</h1>
+<h1>{{ getValue() }}</h1>
+
+
+//aur kya kya acheive kr skte hai interpolation s
+<h1>2+2</h1> normally agr component.html file me yeh likhe toh output 2+2 hi aygya but agr {{}} ase likhe toh yeh act krega proper javascript 
+ki trh
+<h1>{{2+2}}</h1> //output 4
+
+<h1>{{title==="Cofee-point"}}</h1> // we can also check that title iske equal hai ya nhi
+
+interpolation me ap vo sari chize kr skte ho jo in a javascript ap kr skte ho
+//yeh properly work krega
+<h1 class="{{title}}">{{title}}</h1>
+<h1 class={{title}}>{{title}}</h1>
+
+
+
+//interpolation s ap kya kya acheive nhi kr skte 
+<h1>{{title="hello"}}</h1> //value change nhi kr skte
+<h1>{{typeof title}}</h1> //value ka type nhi check kr skte
+<h1>{{data++}}</h1> //integer value ka increment bhi nhi kr skte
+<h1>{{new title}}</h1>//new keyword bhi use nhi kr skte
