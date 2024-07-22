@@ -1,0 +1,14 @@
+color="red";
+<div class="container">
+	<ng-template [ngIf]="color==='red'">
+		<h1>red</h1>
+	</ng-template>
+	<ng-template [ngIf]="color==='green'">
+		<h1>green</h1>
+	</ng-template>
+	<ng-template [ngIf]="color==='blue'">
+		<h1>blue</h1>
+	</ng-template>
+</div>
+
+3 ya 4 condition me toh else-if lga skte hai but jb 8 ya 9 condition aa jati hai toh ap switch case use kroge
