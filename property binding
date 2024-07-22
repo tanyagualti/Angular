@@ -24,6 +24,19 @@ Interpolation: Primarily used for binding text content.
 
 
 
+interpolation string ya numeric values me kam krta hai ,boolean me kam nhi krta but
+property binding boolean me kam krta hai
+
+
+
+
+    <p>{{ message }}</p>
+    <p>{{ count }}</p>
+    <p>{{ isLoggedIn }}</p> //this is not show in boolean value this true is show as a string
+
+     message = 'Welcome to Angular!';
+     isLoggedIn = true; // This will display as 'true' (converted to string)
+     count=0;
 
 
 
