@@ -1,0 +1,62 @@
+<div class="container">
+	<h1 style="color:blue;">hello</h1> //this is static style
+</div>
+
+//style binding means dynamic style which is change condition to condition values comes from ts file
+
+
+<div class="container">
+	<h1 [style.color]="green">hello</h1> //agr hum isko ase likhte hai toh isko lgega green nam ki property hai .ts file me toh hme quotes lgane pdnge
+</div>
+
+<div class="container">
+	<h1 [style.color]="'green'">hello</h1> //like this but still this is static style
+</div>
+
+//this colors value come from ts file property
+
+colors="red";
+
+<div class="container">
+	<h1 [style.color]="colors">hello</h1>
+</div>
+
+
+example of dynamic style or style binding
+<div class="container">
+	<h1 [style.color]="colors">hello</h1> //style.css_property_name
+	<button (click)="change()">update color</button>
+</div>
+colors="red";
+
+change(){
+
+  if(this.colors==="red"){
+    this.colors="blue";
+  }
+  else{
+    this.colors="red";
+  }
+}
+
+
+
+// two style property in single element
+colors="red";
+bgcolors="blue";
+
+change(){
+
+  if(this.colors==="red" && this.bgcolors==="blue"){
+    this.colors="blue";
+    this.bgcolors="red";
+  }
+  else{
+    this.colors="red";
+    this.bgcolors="blue";
+  }
+}
+<div class="container">
+	<h1 [style.color]="colors" [style.background]="bgcolors">hello</h1>
+	<button (click)="change()">update color</button>
+</div>
