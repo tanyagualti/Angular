@@ -1,0 +1,29 @@
+ It uses square brackets [] to bind a component property to an element property.
+ <div class="container">
+	<input type="text" name="n1" value={{data}} disabled={{disable}}> //interpolation
+	<br><br>
+	<input type="text" name="n2" [value]=data [disabled]= disable> //property binding
+</div>
+# .ts file
+ data="peter";
+  disable=false;
+
+//jb distable property ko true kra toh interpolation and property binding dono disable ho gye 
+but jb false kra toh property binding toh false ho gyi  aur interpolation n false ko string smjh liya aur disabled false nhi hua
+toh diff saf hai interpolation mainly html tag k innner data ko change krne k liye use hota hai
+aur property binding property ki value change krne k liye use hoti hai
+
+
+diff between both
+Property Binding: Used to bind data to an element property (e.g., attributes, DOM properties).
+Interpolation: Used to bind data to the inner text content of an element.
+
+
+Property Binding: Can bind data to various properties of elements, such as src, href, disabled, etc.
+Interpolation: Primarily used for binding text content.
+
+
+
+
+
+
