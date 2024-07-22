@@ -1,0 +1,49 @@
+ show=true; 
+<div class="container">
+	<h1 *ngIf="show else elseBlock">code by step</h1> //else(keyword) elseBlock (id) 
+	<ng-template #elseBlock> elseBlock(id)
+		<h1>code not step</h1>
+	</ng-template>
+</div>
+
+//agr show true hai toh output code by step and false hai toh output code not step 
+
+//second way
+
+<div class="container">
+	<h1 *ngIf="show; then ifBlock else elseBlock"></h1> //if else ko declare yha kr dia
+	<ng-template #ifBlock> //define yha
+		<h1>code by step</h1>
+	</ng-template>
+	<ng-template #elseBlock> //defile yha
+		<h1>code not step</h1>
+	</ng-template>
+</div>
+
+//check condition
+
+<div class="container">
+	<h1 *ngIf="show===true; then ifBlock else elseBlock"></h1>
+	<ng-template #ifBlock>
+		<h1>code by step</h1>
+	</ng-template>
+	<ng-template #elseBlock>
+		<h1>code not step</h1>
+	</ng-template>
+</div>
+
+
+
+change the property value false to true ,true to false
+
+<div class="container">
+	<button class="btn btn-dark" (click)="change()">change property value</button>
+</div>
+change(){
+  if(this.show==false){
+    this.show=true;
+  }
+  else{
+    this.show=false;
+  }
+}
