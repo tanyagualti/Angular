@@ -1,0 +1,17 @@
+obej=[
+    {name:'tanya',email:'tanya@gmail.com',ph:'918191819',social:['facebook','insta','email']},
+    {name:'manya',email:'manya@gmail.com',ph:'912522818',social:['youtube','fb','snapchat']},
+    {name:'sanya',email:'sanya@gmail.com',ph:'226262626',social:['printest','insta','linkedIn']}
+  ]
+
+<div class="container">
+       <ul *ngFor="let item of obej">
+       	 <li>{{item.name}}</li>
+       	 <li>{{item.email}}</li>
+       	 <li>{{item.ph}}</li>
+                  <ul *ngFor="let soc of item.social">
+                       	<li>{{soc}}</li>
+                  </ul>
+       	
+       </ul>
+</div>
