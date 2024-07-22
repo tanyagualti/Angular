@@ -1,0 +1,20 @@
+ arr=['tanya','manya','sanya'];
+ <div class="container">	
+
+<h1 id="heading" style="color:blue;">for loop</h1>
+
+<p *ngFor="let item of arr">Name is:{{item}}</p> //let (let var like this) item(variable) arr(array) arr ki ek ek value item me ati rhegi aur print hoti rhgai
+</div>
+
+
+second data
+obej=[
+    {name:'tanya',email:'tanya@gmail.com',ph:'918191819'},
+    {name:'manya',email:'manya@gmail.com',ph:'912522818'},
+    {name:'sanya',email:'sanya@gmail.com',ph:'226262626'}
+  ]
+<p *ngFor="let item of obej">name:{{item.name}}--email:{{item.email}}--phome:{{item.ph}}</p>
+
+//loop k andr loop use kr skte hai
+//javascrpt and angular ka loop same nhi hai angular ka loop hum html template pr apply kr skte hai
+but javascript ka loop hm ts file me hi apply krnge
