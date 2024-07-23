@@ -1,0 +1,14 @@
+so we send data to api
+and api update the database
+angular not direct connect with database
+angular----------api-------------database
+
+form type in angular
+1.template-driven from
+         . Mosly work done in the component template
+2.reactive form
+         . mostly work done in component class
+
+
+data flow:-
+templete------------class------------------service(api)---------------database
