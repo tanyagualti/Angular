@@ -1,0 +1,56 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" ngModel required>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" ngModel required>
+  </div>
+
+  <button type="submit" [disabled]="myForm.disabled || myForm.invalid" >Submit</button>  //disabled and invalid control directive
+  <!-- jb job invalid hoga yaa jb disabled hoga tb disable rhega button -->
+</form>
+
+<button type="button" (click)="disableForm(myForm)">Disable Form</button>
+  <button type="button" (click)="enableForm(myForm)">Enable Form</button>
+
+<p *ngIf="formSubmitted">Form Status: {{myForm.valid ? 'Valid' : 'Invalid'}}</p> //valid control directibe
+
+
+
+
+
+
+
+
+
+
+
+
+
+ formSubmitted = false;
+
+  onSubmit(form: NgForm) {
+    this.formSubmitted = true;
+    console.log('Form Data:', form.value);  //value control directive
+    console.log('Form Valid:', form.valid);  //valid control directive
+    // Asynchronous Validators: When you use asynchronous validators, 
+    // Angular sets the pending state to true while the validation operation 
+    // is ongoing. For example, if you have a validator that checks a 
+    // username against a remote server to ensure it’s unique,
+    //  the form control will be in a pending state until the server responds.
+    console.log('Form Pending:', form.pending ); //pending control directive
+
+  }
+form.form.disable() sirf form.disable() lgaynge toh error aygi bcz this method is not exist in ngForm thats why form.form lgana pdhta hai
+jo sare field me apply hota hai form k
+The disable() method exists on FormControl, FormGroup, and FormArray in Angular’s reactive forms.
+   disableForm(form: NgForm) {
+    form.form.disable();  // Disables all controls in the form
+  }
+
+  enableForm(form: NgForm) {
+    form.form.enable(); // Enables all controls in the entire form
+  }
