@@ -1,3 +1,5 @@
+ngModel helps to Creates a FormControl instance .
+formControl is Tracks the value and validation status of an individual form control.
 uses of ngModel
 
 1.Two-Way Data Binding: ngModel simplifies the process of binding a form input element to a property in the component class. It automatically 
