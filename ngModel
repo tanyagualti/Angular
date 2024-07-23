@@ -1,0 +1,15 @@
+uses of ngModel
+
+1.Two-Way Data Binding: ngModel simplifies the process of binding a form input element to a property in the component class. It automatically 
+updates the property when the user changes the input, and vice versa, which reduces the need for manual synchronization.
+syntax:[(ngModel)]
+//jese jese input me value likhte rhnge vese vese h1 me value inc dec hoti rhegi
+example:<form #myForms="ngForm">
+	
+	<input type="text" name="name" [(ngModel)]="name">//form control 
+	<h1>{{name}}</h1> 
+	<br><br>
+	<input type="email" name="email" ngModel>
+	<br><br>
+	<input type="submit" name="submit">
+</form>
