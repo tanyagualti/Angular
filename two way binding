@@ -1,0 +1,21 @@
+two way binding: means same time pr property ko update krwana aur display krwana that is two way binding.it is acheive through ngModel
+
+we have to import formModule in app.compoenent.ts otherwise got error and also register in imports
+
+example:
+
+name:string="";
+<form #myForms="ngForm">
+	
+	<input type="text" name="name" [(ngModel)]="name">//form control 
+	<h1>{{name}}</h1> 
+	<br><br>
+	<input type="email" name="email" ngModel>
+	<br><br>
+	<input type="submit" name="submit">
+</form>
+
+//other way is also here acheiving two way binding but its very lengthy :-make a function and use onchange event
+//property is name in this example [(ngModel)]="name" ngmodel k sath is trh s use krne ko khnge binding
+
+isse update bhi ho gya aur display bhi ho gya (two way)
