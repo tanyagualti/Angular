@@ -1,0 +1,11 @@
+ek input box k upr # k sath ek id de dete hai use ap id bol lo ya template reference variable bolo both are same, uski help k input k sare values
+(placeholders,name)and attributes ko get kr skte hai html k page pr hi get kr skte hai aur as a parameter kisi func k through .ts file me bhi send 
+kr skte hai
+<form>
+	<input type="text" name="name" #box>
+	<button (click)="getVal(box.value)">click me</button>
+</form>
+
+getVal(item:string){
+    console.log(item);
+  }
