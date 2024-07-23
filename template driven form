@@ -1,0 +1,16 @@
+jin form ki handling html templete me hoti hai that is called template driven form
+handle kya kya krte hai ,, form k andr value set ya get krwana ho error wala dikhana ho validation apply krni ho
+
+<form #my="ngForm" (ngSubmit)=userLogin(my.value)>
+	<input type="text" name="name" ngModel><br><br> //agr hum templete driven form me name="" nh de toh error show hogi
+	<input type="email" name="email" ngModel>
+	<button>click me</button>
+</form>
+ agr button form k bhr hai tb bhi form ko submit krwa skte hai
+<button (click)=userLogin(my.value)>button outside form</button>
+userLogin(item:any){
+    console.log(item);
+  }
+
+
+<form #my="ngForm" (ngSubmit)=userLogin(my.controls)> agr hum yeh likhnge toh form ki sari input fields aa jyngi
