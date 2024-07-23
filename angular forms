@@ -1,0 +1,44 @@
+angular forms:- 1: template driven (this form is driven from templete which is in html aslo logic are applied on this particular form . 
+logic like(checking validation,enabling and disabling the controls))
+                2: reactive driven (it has two parts first is html and second is ts file. form is written in templete and main logic written in
+ ts file)
+
+
+--------------------------------mgForm----------------------------------------------
+ngForm is a directive which helps to create the control groups from directive (ngForm top level form group hai),jb form tag me ngForm lgate hai
+toh hmare form me jitne controls hai us sare controls ko group krke hmare component me add kr deta hai (sare control k value aur validation k status 
+ko track krta hai)
+
+FormControl:Represents a single form input element.
+Tracks the value and validation status of the input field.
+
+FormGroup:
+A collection of FormControl instances.
+Tracks the aggregate value and validation status of the group of controls.
+Useful for grouping related form controls together, such as an address or user profile.
+
+
+FormArray:
+
+An array of FormControl, FormGroup, or other FormArray instances.
+Useful for dynamic forms where the number of controls can change, like a list of user inputs.
+
+
+
+
+
+
+
+
+
+//ngForms- it tells us what the values of different form controls are and whether the values is valid or invalid
+
+//ngForm kya reprent kr rha hai hmare form me jitne bhi control hai unhe grouping krke #myForms me bind krke add kr diya
+//ngForm ka type hota hai formGroup
+<form #myForms="ngForm"> //#myforms ngForm ka allias create kr rhe hai
+	<input type="text" name="name">
+	<br><br>
+	<input type="email" name="email">
+	<br><br>
+	<input type="submit" name="submit">
+</form>
