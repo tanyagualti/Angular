@@ -1,0 +1,8 @@
+name="";
+<form #my="ngForm">
+	<input type="text" name="name" [(ngModel)]="name" #nameInput="ngModel" required minlength="3" maxlength="10">
+<div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)">
+	 <div *ngIf="nameInput.errors?.required">Name is required.</div>
+    <div *ngIf="nameInput.errors?.minlength">Name must be at least 3 characters long.</div></div>
+	<button type="submit">submit</button>
+</form>
