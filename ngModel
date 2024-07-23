@@ -13,3 +13,28 @@ example:<form #myForms="ngForm">
 	<br><br>
 	<input type="submit" name="submit">
 </form>
+
+
+
+ngModel is a directive used for two-way data binding between form inputs and component properties.
+
+Creating Form Controls with ngModel:
+
+ngModel is used to bind form controls (like inputs, selects, etc.) to component properties. 
+It creates an instance of a form control and tracks its value and validation status.
+ <input type="text" id="name" [(ngModel)]="name" name="name" required>
+
+
+
+Template Reference Variable (#myForm):
+
+When you use a template reference variable (e.g., #myForm) on a <form> element with ngForm, 
+it creates an instance of the form and allows you to access the form's overall state and controls.
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+
+Accessing Form Controls:
+
+The template reference variable (#myForm) is used to access the form instance
+and its controls from within the template and the component.
+This allows you to manage and interact with the form and its controls programmatically.
+Example
