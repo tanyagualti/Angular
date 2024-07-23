@@ -1,0 +1,5 @@
+<form #my="ngForm">
+	<input type="text" name="name" ngModel>
+	<button type="submit">submit</button>
+</form>
+<button type="button" (click)="my.reset()">Reset</button> //reset() yeh method ngForm ka hai
