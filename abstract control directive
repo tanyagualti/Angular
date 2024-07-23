@@ -1,3 +1,5 @@
+//ngForm properties
+
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
   <div>
     <label for="name">Name:</label>
