@@ -1,0 +1,10 @@
+regex means regular expression
+email validation not working properly in angular so we use pattern
+
+emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+passwordRegex = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$';
+
+ <input type="email"  ngModel class="input form-control" name="email" id="exampleInputEmail1"
+placeholder="Enter email" ngModel #email="ngModel" required [pattern]="emailRegex" maxlength="32">
+                    
+ <p class="err" *ngIf="email.invalid && email.touched">Please enter valid value !!</p> //this is validation properties in angular 
