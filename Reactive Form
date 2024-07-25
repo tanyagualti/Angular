@@ -1,0 +1,44 @@
+first of all we have to import this (import { ReactiveFormsModule } from '@angular/forms';) in app.module.ts
+
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule //register this in imports in same file
+  ],
+
+reactive.component.html file
+<form [formGroup]="loginForm" (ngSubmit)="collect()">  form name is loginForm which is control whole form 
+		<div>
+			<label>Username</label><br>
+			<input type="text" name="name" placeholder="enter name" formControlName="name"> formControlName is field name which is control the single field
+		</div>
+		<div>
+			<label>Email</label><br>
+			<input type="email" name="email" placeholder="enter email" formControlName="email">
+		</div>
+		<div>
+			<br><button class="btn btn-primary">Login</button>
+		</div>
+     </form>
+
+
+
+
+
+
+in reactive.component.ts file
+we have to import this two
+import { FormControl,FormGroup } from '@angular/forms';
+
+then make the object of formGroup and pass the all contol fields which is exist the form and make the object for control this field
+loginForm=new FormGroup({ //yeh pure form ko control krega
+  name:new FormControl("tanya"), //yeh ek field ko control krega bs
+  email:new FormControl("tanya@gmail.com")  // yeh bhi sirf email field ko control krega
+})
+
+
+collect(){
+  console.log(this.loginForm.value); //this is different from templete driven bcz value lene k liye parameter ki jrurt ni pdhti 
+  direct loginForm me s hi value get kr skte hai
+}
