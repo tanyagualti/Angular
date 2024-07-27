@@ -60,3 +60,23 @@ change(){
 	<h1 [style.color]="colors" [style.background]="bgcolors">hello</h1>
 	<button (click)="change()">update color</button>
 </div>
+
+
+
+
+
+
+
+
+
+other example
+
+<p class="fs-2" [style.margin]="mystyle">Tanya</p>
+  <button style="btn btn-dark" (click)="change()">change color</button>
+
+
+mystyle:string="100px";
+
+change(){
+ this.mystyle=this.mystyle=="15px"?this.mystyle="100px":this.mystyle="15px";
+}
