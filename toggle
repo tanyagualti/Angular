@@ -38,3 +38,39 @@ display=false;
 showing(){
 this.display = this.display ? false : true;
 }
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular Fade Example</title>
+  <style>
+    .fade {
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+    }
+    .fade.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <p>Toggle (any element getting hide and show again is called toggle)</p>
+
+  <button (click)="showing()">Toggle</button>
+  <p [class.show]="display" class="fade">My name is Tanya</p> class="fade" by default opacity 0
+
+  
+</body>
+</html>
+[class.show]="display" allows you to apply the show class based on the display variable, enabling the 
+CSS transition for fading the element in and out.
