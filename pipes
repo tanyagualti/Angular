@@ -1,0 +1,78 @@
+(* Pipes are simple functions to use in template expressions to accept an input value and return a transformed value *)
+//pipes are used in html not ts file
+<h1>{{ title | uppercase }}</h1>  
+<h2>{{ today | date : 'fullDate'}}</h2>
+
+title="coffe point";
+today=Date();
+
+
+ques is : is that pipe is important to used? we are not work without pipe.
+we can do work without pipe but pipe makes work easy
+
+(* hum string ko uppercase with function bna k bhi kr skte the but its time consuming process *)
+
+(* we are using two pipes together *)
+
+
+<h1>{{ title | uppercase }}</h1>  //single pipe use
+<h1>{{ title | slice : 3:6 }}</h1>  //slice pipe
+<h1>{{ title | slice : 3:6 | uppercase}}</h1>  //use two pipe together
+
+
+
+<h2>{{user | json}}</h2> //json slice
+output is: { "name": "anil", "age": 28 }
+
+user={
+  name:'anil',
+  age:28
+}
+
+//number pipe
+<h2>{{ 2.3 | number : '3.3-5'}}</h2>
+(* 3.3-5   3 means . s phle 3 character dikhe . k bd maxmimum 3 character dikhe aur maximum 5 *)
+(* actual value hai 2.3  2 increase hoga age s 3 inc hoga piche s 00 lgake  *)
+
+
+//currency pipe
+<h2>{{20 | currency : 'USD'}}</h2>
+(* agr hum chahte hai ki 20 k sth dollar ka sign laga aa jaye toh hum use krnge currency pipe *)
+
+
+(* it is use for capital first letter h  *)
+<h1>{{ "hello am tanya" | slice:0:1 | uppercase }}</h1>
+
+
+ng g p usdInr //this is the command of make custom pipe file
+
+in.ts file
+ pipe bnaya hai usd currency ko india me convert krne k liye
+transform(value: number, ...args: unknown[]): unknown {
+    return value*70;
+  }
+
+<h1>{{12 | usdInr}}</h1> //pipe name is also exist in .ts file
+
+
+
+
+//currency ki values time to time change hoti rhti hai agr hum chahte hai ki ise yhi s hi send kr diya jaye
+<h1>{{12 | usdInr : 90}}</h1>  //aur yeh milti kha hai .ts file k args me
+transform(value: number, ...args: number[]): unknown {
+    const [x]=args;  args array me value hoti hai whi s udhani hoti hai 
+    console.log(x);
+    return value*x;
+  }
+
+(* when pass multiple args and fetch *)
+<h1>{{12 | usdInr : 90 : 30}}</h1>
+ transform(value: number, ...args: number[]): unknown {
+    const [x]=args;
+    console.log(x); //90
+     const [, secondArg] = args;
+    console.log(secondArg);//30
+    return value*x;
+  }
+
+
