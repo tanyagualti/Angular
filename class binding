@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular Fade Example</title>
+  <style>
+    .fun{
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+  <p [class.fun]="display">Tanya</p>
+</body>
+</html>
+
+
+in .ts file
+display=true;
+
+when display is true show red color, when false show black
