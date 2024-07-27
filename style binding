@@ -80,3 +80,25 @@ mystyle:string="100px";
 change(){
  this.mystyle=this.mystyle=="15px"?this.mystyle="100px":this.mystyle="15px";
 }
+
+
+
+
+we can also use angular directive ngStyle
+first way
+  <p class="fs-2" [ngStyle]="{'background-color':'red'}">Tanya</p>
+
+
+second way
+
+  <p class="fs-2" [ngStyle]="mystyle">Tanya</p>
+mystyle={
+  'background-color':'red',
+  'border':'10px solid green'
+};
+
+
+
+
+important note:ngStyle ngClass more than one style or class lgane k liye use krte hai otherwise class.fun 
+or style.margin lga k bhi kr skte(for one property)
