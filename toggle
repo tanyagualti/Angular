@@ -1,0 +1,40 @@
+  this.display = !this.display;
+
+working of this(  this.display = !this.display;)
+
+this.display is a boolean variable, meaning it can be either true or false.
+The ! operator is the logical NOT operator in JavaScript. It inverts the value of a boolean.
+If this.display is true, !this.display will be false.
+If this.display is false, !this.display will be true.
+By assigning !this.display back to this.display, you effectively toggle its value.
+So, each time this.display = !this.display; is executed:
+
+If this.display was true, it becomes false.
+If this.display was false, it becomes true.
+
+
+
+
+working of this(his.display = this.display ? false : true;):
+his.display = this.display ? false : true;
+               condition ? expressionIfTrue : expressionIfFalse
+
+
+
+
+
+
+
+
+code of toggle:
+<p>toggle(any element getting hide and show again agian is called toggle)</p>
+
+
+<button (click)="showing()">toggle</button>
+<p *ngIf="display === true">my name is tanya</p>
+
+
+display=false;
+showing(){
+this.display = this.display ? false : true;
+}
