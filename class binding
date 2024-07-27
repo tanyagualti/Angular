@@ -21,3 +21,20 @@ in .ts file
 display=true;
 
 when display is true show red color, when false show black
+
+
+
+above method s sirf ek hi class ko bind kr skte hai agr hme multiple class ko bind krna hia toh uska ngClass ek angular directivve hai
+usee use krte hai
+first way
+<p class="fs-2" [ngClass]="'class1 class2 class2'">Tanya</p>
+
+second way
+ <p class="fs-2" [ngClass]="multiClass">Tanya</p>
+
+multiClass={
+
+  class1:false, //isme false likha yeh apply nhi hoga
+  class2:true, //yeh 2 and 3 apply ho jygi bcz of true
+  class3:true
+}
