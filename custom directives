@@ -1,0 +1,21 @@
+command:- ng generate directive directive_name
+// if we want to add this file in directive folder
+then command:-ng generate directive directive/redel
+
+  
+  // ElementRef is a service provided by Angular that gives direct access to the DOM element associated with a directive or component.
+
+  // in directive.ts file
+  import { Directive,ElementRef } from '@angular/core';
+@Directive({
+  selector: '[appRedel]'
+})
+export class RedelDirective {
+
+  constructor(el:ElementRef) {
+el.nativeElement.style.color="blue";
+   }
+}
+
+<h1 appRedel>{{title}}</h1>
+
