@@ -1,0 +1,104 @@
+      
+Yes, you are correct! Input properties in Angular are used to receive values from a parent component. 
+# in parent.ts (make a property name data)
+ data =10;
+ change(){
+    this.data=Math.floor(Math.random()*10);
+  }
+ # in parant.html send data to child
+ <app-child [item]="data"></app-child>
+ <button (click)="change()">update child component</button>
+
+ # in child.ts use input
+ import { Component, OnInit,Input } from '@angular/core';
+ @ Input() item=0; //input property
+
+ # in child.ts display item
+ <h1>{{item}}</h1>
+
+
+
+ # multiple components bhi add kr skte hai
+
+ @ input
+                       data
+ parent component---------------------->child component
+
+
+ek value nhi agr bhut sari values parent to child send krni ho toh for loop use hota hai
+# in parent.ts
+ details=[
+{name:'tamya',email:'tanya@gmail.com'},
+{name:'manya',email:'manya@gmail.com'},
+{name:'peter',email:'peter@gmail.com'}
+    ]
+# in parent.html
+<ul *ngFor="let user of details">
+	
+
+ <app-child [items]="user"></app-child>
+
+
+</ul>
+
+# in child.ts
+@ Input() items:{name:string,email:string}={name:'',email:''}; //input property
+
+# in child.html
+<ul>
+  <li>{{items.name}} | {{items.email}}</li>
+  
+</ul>
+#components ko reuse bhi krte hai
+#ab jese agr khi bhi kisi page me name aur email value aa rhi hai toh child component ko
+# use kr skte hai wha sb style sb apne ap manage ho jayga bcz isme already sb likha hua hai
+
+
+ @ output
+
+                      data
+ parent component<----------------------child component
+
+
+# The syntax <app-popup (updateDataEvent)="updateData($event)"></app-popup> demonstrates the use of an output property in
+# Angular. This allows a child component to emit an event, which the parent component can listen to and handle.
+
+
+# In Angular, "emitting an event" means that a child component sends a notification to its parent component that something 
+# has happened. This is typically done using the EventEmitter class in combination with the @Output() decorator. 
+
+# $event Variable: In the parent component's event handler, $event is used to access the event data.
+
+# parent.ts
+updateData(item:string){ #evnt handler method
+  console.log(item);
+ }
+# first of all ek method bnaya aur use wha cal kra liya jha child component import ho rha hai aur name kuch bhi rkh do updadtedataevent jruri nhi
+# but pass $event hi krna hai
+# parent.html
+<app-popup (updateDataEvent)="updateData($event)"></app-popup>
+
+# child.ts
+import { Component, Output, EventEmitter } from '@angular/core';
+  @Output() updateDataEvent=new EventEmitter<string>();
+
+# @output decorator use krna hai aur emit Emitter type ka obj bnega aur ab isko pass krna hai .html me
+
+# child.html
+<h1>child</h1>
+<input type="text" #box>
+<button (click)="updateDataEvent.emit(box.value)">update data</button> 
+#updateDataEvent obj hai emi emitter type ka usse emit method
+# call ho rha hai (value jo input s aygi) child component emit() method k through bta rha hai something is happend
+
+
+
+# Parent Component: The parent component listens for this event and responds by executing a designated event handler method.
+  
+
+
+
+
+
+
+ 
