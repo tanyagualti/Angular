@@ -1,0 +1,3 @@
+for apply 404 page we use wild card routes **
+if any page which url are not matched then show the 404 page
+{path:'**',component:NopageComponent}   , we have to add the path in router.ts file 
