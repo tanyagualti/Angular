@@ -1,0 +1,26 @@
+<a class="nav-link" routerLinkActive="active"  tabindex="7" routerLink="/blog/20">blog20</a> //in header file
+  //yeh tb tk nhi chlega jb tk blog me id nhi dal denge route me
+  {path:'blog/:id',component:BlogComponent} //thats how we pass the id in routes  //in app.router file
+
+// path is like that
+http://localhost:4200/blog/20
+
+// now i want to get the id from url
+//in blog.ts file
+import { ActivatedRoute } from '@angular/router';
+
+
+// In Angular, ActivatedRoute is a service that provides access to information about a route associated with a component loaded
+// in an outlet. It is useful for extracting information such as route parameters, query parameters, URL segments, and more.
+
+constructor(private route:ActivatedRoute) { }
+// make the instane of ActivatedRoute class
+
+// snapshot: Provides the current snapshot of the route.
+// The path 'user/:id' defines a route with a parameter id
+
+// the paramMap is a map of parameters available to the route.
+  // It allows you to easily get route parameters by their name without needing to subscribe to an observable. T
+ngOnInit(): void {
+    console.log("use id is:",this.route.snapshot.paramMap.get('id'));
+  }
