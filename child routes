@@ -1,0 +1,14 @@
+{
+    path: 'about',
+    component: AboutComponent,
+    children: [
+      {
+        path: 'company',
+        component: AboutComponyComponent //this is another module
+      }
+    ]
+  },
+
+
+ <a class="nav-link" routerLinkActive="active"  tabindex="7" routerLink="/about/company">Company</a> //if we add this in anywhere 
+   we have to add router-outlet in about page then show the about-company page show
