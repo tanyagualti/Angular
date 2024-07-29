@@ -12,3 +12,7 @@
 
  <a class="nav-link" routerLinkActive="active"  tabindex="7" routerLink="/about/company">Company</a> //if we add this in anywhere 
    we have to add router-outlet in about page then show the about-company page show
+
+
+Yes, in a parent component, having a <router-outlet> is essential when you have child routes. The <router-outlet> acts as a placeholder 
+where the router dynamically inserts the component for the activated route. Without it, the child routes will not render.
