@@ -1,0 +1,6 @@
+# services can be class jiske andr function ,data and property ho skte hai aur is data property ko multiple files me use kr skte ho
+ho skta hai ki same data apko more than one page show krana ho ya yeh bhi ho skta hai ki ek hi page pe same data two times show krana ho (like header
+me bhi aur footer me bhi)
+
+we have to make services by command
+command:- 
