@@ -3,4 +3,32 @@ ho skta hai ki same data apko more than one page show krana ho ya yeh bhi ho skt
 me bhi aur footer me bhi)
 
 we have to make services by command
-command:- 
+command:- ng g service services/userData
+
+in servics.ts file
+user(){
+
+return [
+{name:'tanya',email:'tanya@gmail.com'},
+{name:'manya',email:'manya@gmail.com'},
+{name:'sanya',email:'sanya@gmail.com'}
+  ]  
+}
+
+now i want to display this data in multiple component
+
+.ts file of component
+import { UserDataService } from '../services/user-data.service';
+
+
+val:any;
+constructor(private data:UserDataService) { //make the instance of userDataServices
+console.log(data.user()); //and call the method
+this.val=data.user(); //method value assign the val variable
+ }
+
+
+and display this values in same component of html page
+<ul *ngFor="let item of val">
+	<li>{{item.name}}</li>
+</ul>
