@@ -19,4 +19,16 @@ symbol in backend angular not use * symbol it use [ngIf] -->
 	 <ng-template [ngIf]="color==='red'">
 		<h1 style="color:red;">red</h1>//view
 	</ng-template>
+
+
+
+<!-- behind the scenes of else part -->
+
+ <ng-template [ngIf]="color==='red'" [ngIfElse]="myVal">
+		<h1 style="color:red;">red</h1>
+	</ng-template>
+
+<ng-template #myVal>
+	<h1>not red</h1>
+</ng-template>
 	
