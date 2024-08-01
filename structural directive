@@ -1,0 +1,22 @@
+ A structural directive manipulates the DOM by adding or removing element to or from the DOM on which we use it.
+ when we use structural directive in angular prefix it with ashtrik symbol
+ what is the significance of astrik symbol:-
+ when we use ashtrik with directives then this symbol tells angular that this directive is structural directive
+
+ behind the scenes:-
+ that structual directive angular creates a template
+ <ng-template></ng-template> we wrapes the view of structural directives in this template
+
+
+
+ <!-- behind the scenes -->
+
+
+<!-- angular creates the template --angular wrapes the view in ng-template and then not use the *
+symbol in backend angular not use * symbol it use [ngIf] -->
+
+
+	 <ng-template [ngIf]="color==='red'">
+		<h1 style="color:red;">red</h1>//view
+	</ng-template>
+	
