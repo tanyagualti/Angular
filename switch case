@@ -1,4 +1,9 @@
-  colors="orange";
+//In Angular, [ngSwitch] is an attribute directive. Unlike structural directives 
+//(such as *ngIf, *ngFor, *ngSwitchCase, and *ngSwitchDefault), which change the structure of the DOM
+//by adding or removing elements, attribute directives modify the behavior or appearance of the existing DOM elements.
+
+
+colors="orange";
 <div class="container">
 
     <h1>Switch Case</h1>
