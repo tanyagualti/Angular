@@ -2,7 +2,7 @@
 <div class="container">
 
     <h1>Switch Case</h1>
-
+//[ngSwitch] holds the value to be compared.
     <div [ngSwitch]="colors"> //switch case apply on colors property
     	<h1 *ngSwitchCase="'red'" style="color:red;">red color</h1> //compare red color from ngswitch case it is red or not if yes then execute h1 
 //otherwise next color check
