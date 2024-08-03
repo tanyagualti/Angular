@@ -18,3 +18,23 @@ obej=[
 //loop k andr loop use kr skte hai
 //javascrpt and angular ka loop same nhi hai angular ka loop hum html template pr apply kr skte hai
 but javascript ka loop hm ts file me hi apply krnge
+
+
+<div *ngFor="let val of teachers; first as f"> we can check what is first element
+		<h1>{{f}}:-{{val}}</h1>
+	</div>
+<div *ngFor="let val of teachers; index as i"> index value
+		<h1>{{i}}:-{{val}}</h1>
+	</div>
+
+<div *ngFor="let val of teachers; last as l"> last value
+		<h1>{{l}}:-{{val}}</h1>
+	</div>
+
+<div *ngFor="let val of teachers; odd as o"> odd values
+		<h1>{{o}}:-{{val}}</h1>
+	</div>
+
+<div *ngFor="let val of teachers; even as e"> even values
+		<h1>{{e}}:-{{val}}</h1>
+	</div>
