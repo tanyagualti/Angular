@@ -1,3 +1,16 @@
+Yes, in Angular, pipes are used to transform data for display purposes without altering the actual data in your components. Pipes are a way to format or transform data before it's rendered in the template. Here's a more detailed explanation:
+What Pipes Do
+Transform Data for Display: Pipes take input data and transform it into a desired format or representation. For example, the date pipe formats dates, the currency pipe formats numbers as currency, and the uppercase pipe transforms text to uppercase.
+
+Do Not Modify Actual Data: Pipes operate only on the data that is passed to them. They do not change the original data in your component or service. This ensures that the data remains unchanged in its original form, and only the displayed version is altered.
+
+
+<!-- tranform the data during run time 
+agr run time pr koi data aya hai toh usko transform krke apko represent krta hai
+-->
+<!-- yeh main data ko change nhi krta hai bs jo data run time pr pass hota hai usi ko change krke represent krta hai -->
+
+
 (* Pipes are simple functions to use in template expressions to accept an input value and return a transformed value *)
 //pipes are used in html not ts file
 <h1>{{ title | uppercase }}</h1>  
@@ -76,3 +89,24 @@ transform(value: number, ...args: number[]): unknown {
   }
 
 
+
+
+
+
+
+Angular 17 valid pipes
+ color="red";
+  obj={
+    "name":"tanya",
+    "age":21
+  }
+  num=982.5678321;   
+
+
+<h1>{{ color | uppercase }}</h1>
+<h1>{{ color | lowercase }}</h1>
+<h1>{{ color | titlecase }}</h1>
+<h1>{{ obj | json }}</h1>
+<!-- . s phle 4 digit and decimal k bd minimum 1 and maximum 2 -->
+<h1>{{ num | number : '4.1-6' }}</h1>
+<h1>{{color | slice : 1 : 3}}</h1>
