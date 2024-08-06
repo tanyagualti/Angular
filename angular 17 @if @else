@@ -1,0 +1,56 @@
+angular 17 me @if @else ane se fayda kya hua- 1:more understandable and less verbose
+                                              2:no imports    (*ngIf use krte the toh 
+                                                              commanModule ko import krwana
+                                                              pdhta tha isme kuch import 
+                                                               nhi krwana pdhta)
+                                              3:support else,elseIf
+                                              4:no runtime overhead  (agr hum koi module la rhe hai agr use browser pr leke
+                                                                      jana hai toh uska build toh bnega n uske andr k files 
+                                                                       copy honge n toh vo jo time lgta hai ab nhi lgaga
+                                                                        fast process ho gya hai)
+
+
+
+//example of if else
+@if(true){
+<h1>true</h1>
+}
+@else{
+<h1>false</h1>
+}
+
+
+//example of else if
+@if(color=="red"){
+<h1>red</h1>
+} 
+@else if(color =="blue")
+{
+blue
+} 
+@else if(color=="green")
+{
+green
+}
+@else{
+unvalid!!
+}
+
+
+//example of nested if else
+@if(false){
+  @if(true){
+   if  true
+  }
+  @else{
+    if false
+  }
+}
+@else{
+  @if(true){
+    else true
+  }
+  @else{
+   else false
+  }
+}
