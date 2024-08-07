@@ -1,0 +1,36 @@
+an effective loading strategy is a key to sucessfull single page application.
+a module can be loaded eagerly,lazily nad preloaded
+
+eager loading: all the modules and functions are loaded on application startup.(yeh sare modules and functionalities ko
+application stratup me hi load kr deta hai. jese hi user website k url ko hit krta hai vese hi sare module comonent srevices pipes
+sb kuch load ho jata hai ek sath hi isse apka application slow ho jata hai)
+
+if we are use routes and then you are not using any loading that means you use eager loading.
+bydefault loading is eager loading.
+eager loading is ok in small app but not in big
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lazy loading:loading modules on demand
+
+preloading: is loading module in background just after application start
