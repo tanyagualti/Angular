@@ -1,0 +1,26 @@
+<table>
+	<thead>
+		<th>Sno.</th>
+		<th>name</th>
+		<th>age</th>
+		<th>city</th>
+	</thead>
+ 	# <tbody *ngFor="let values of userDetails | slice:-5:-1;  index as i"> agr hme last s record dikhana hai toh - me value
+	<tbody *ngFor="let values of userDetails | slice: 0:5;  index as i">
+		<td>{{i+1}}</td>
+		<td>{{values.name}}</td>
+		<td>{{values.age}}</td>
+		<td>{{values.city}}</td>
+	</tbody>
+</table>
+userDetails=[
+{"name":"ram","age":52,"city":"haridwar"},
+{"name":"sanya","age":22,"city":"rampur"},
+{"name":"anya","age":24,"city":"meerut"},
+{"name":"zanya","age":22,"city":"jaipur"},
+{"name":"tanu","age":25,"city":"mumbai"},
+{"name":"maya","age":27,"city":"haridwar"},
+{"name":"anaya","age":52,"city":"delhi"},
+{"name":"reema","age":12,"city":"jaipur"},
+
+  ]
