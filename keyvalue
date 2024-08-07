@@ -1,0 +1,10 @@
+<!-- key value pipe -->
+yeh obj k key aur value ko alg alg krta hai
+
+<div *ngFor="let val of obj | keyvalue">
+	<p>{{val.key}}----{{val.value}}</p>
+</div>
+
+ouput: age---21
+
+name---tanya
