@@ -1,0 +1,36 @@
+suppose in colg website modules is 1. student 2. teaher 3. dean 
+and inside module no. of components are there
+
+command to make module : ng g m cofee
+and this module create in app folder with one file .module.ts
+
+then create component : ng g c cofee/flavors
+
+but how to see this component content in app.component.html file
+
+(* in cofee.module.ts *)
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FlavourComponent } from './flavour/flavour.component';
+
+
+
+@NgModule({
+  declarations: [
+    FlavourComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports:[
+(*   we need to export the flavourComponent then this is available for all files *)
+    FlavourComponent 
+  ]
+})
+export class CofeeModule { }
+
+
+and in app.module.ts we have to import this cofee module
+import { CofeeModule } from './cofee/cofee.module';
+
+and also registerd in imports
