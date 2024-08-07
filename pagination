@@ -1,0 +1,40 @@
+<table>
+	<thead>
+		<th>Sno.</th>
+		<th>name</th>
+		<th>age</th>
+		<th>city</th>
+	</thead>
+	<tbody *ngFor="let values of userDetails | slice:start:end;  index as i">
+		<td>{{i+1}}</td>
+		<td>{{values.name}}</td>
+		<td>{{values.age}}</td>
+		<td>{{values.city}}</td>
+	</tbody>
+</table>
+<button (click)="page(1)">1</button>
+<button (click)="page(3)">3</button>
+<button (click)="page(5)">5</button>
+<button (click)="page(8)">8</button>
+
+
+(* .ts file  *)
+userDetails=[
+{"name":"tanya","age":22,"city":"saharanpur"},
+{"name":"sanya","age":22,"city":"rampur"},
+{"name":"anya","age":24,"city":"saharanpur"},
+{"name":"zanya","age":22,"city":"saharanpur"},
+{"name":"tanu","age":25,"city":"mumbai"},
+{"name":"maya","age":27,"city":"saharanpur"},
+{"name":"anaya","age":52,"city":"delhi"},
+{"name":"reema","age":12,"city":"jaipur"},
+
+  ]
+
+ start=0;
+ end=5;
+page(data:number){
+
+this.end=data;
+
+}
