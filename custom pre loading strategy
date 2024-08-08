@@ -1,0 +1,37 @@
+first we go pre defined   pre loading strategy class 
+then make a custom service
+
+and implement PreloadingStrategy interface
+
+
+export class CustomPreloadingService implements PreloadingStrategy {
+
+ preload(route: Route, fn: () => Observable<any>): Observable<any>{
+
+   if(route.data && route.data['preload']){
+    return fn()
+   }
+   else{
+    return of(null);
+   }
+ }
+
+  constructor() { }
+}
+
+
+
+// in app-routing.module.ts
+// aur jon se module pr sepecific preloading krwani hai usme likhnge data:{preload:true} preload yeh function hai jo custom service me bna
+  {path:'user',data:{preload:true},loadChildren:()=>(import('./user/user.module')).then((mod) =>  (mod.UserModule))},
+
+
+
+
+
+
+
+
+The preload function is a custom preloading strategy that checks if the preload key in the data property of the route is set to true.
+If route.data['preload'] is true, it calls the function fn(), which is the function that loads the module (the result of which is an Observable), thus enabling preloading.
+If route.data['preload'] is not true, it returns of(null), indicating that nothing should be preloaded.
