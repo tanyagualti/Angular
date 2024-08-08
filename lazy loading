@@ -20,15 +20,14 @@ in app.module.ts
 
 
 in app-routing.module.ts
-{path:'user',loadChildren:()=>(import('./user/user.module')).then(mod => mod.UserModule)}, //dynamic import for lazy loading
+{path:'user',loadChildren:()=>(import('./user/user.module')).then((mod) =>  (mod.UserModule))}, //dynamic import for lazy loading
 
 path
 loadChildren is property for use lazy loading
 ()=> return import() method (this method is javascipt method use for dynamic import the module)
 
 
-.then(mod => mod.UserModule):
-
+then((mod) =>  (mod.UserModule)) //arrow function
 This part handles the promise that the import() function returns. When the user.module is successfully loaded, the promise resolves with the mod reference, which represents the module that was imported.
 The mod.UserModule notation accesses the UserModule class (or variable) that is exported from the user.module.ts file. By returning this, the Angular Router knows which module to load and instantiate.
 
