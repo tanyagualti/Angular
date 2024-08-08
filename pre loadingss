@@ -1,0 +1,19 @@
+lazy loading me jb module k link pr click krnge vo tbhi module load hoga lkin user ko ek ya do sec acc to internet speed 
+module k load hone ka wait krna pdhta hai jo acha nhhi hai
+
+toh hum preloading use krte hai ki user n first time home page khola hai aur vo use dekh rha hai toh tbtk dusre modules load 
+hona shuru ho jaye isse wait nhi krna pdega
+
+(* in app.module.ts*)
+
+
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';  //and also import this
+@NgModule({
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy:PreloadAllModules  //we have to write this
+  })],
+  exports: [RouterModule]
+})
+
+
+
