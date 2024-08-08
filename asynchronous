@@ -1,0 +1,61 @@
+asynchronous loading of data refers to the process of loading data in the background, without blocking the execution of 
+other tasks.in other words data is loaded in non blocking manner,allowing the application to continue executing other tasks
+while the data is being loaded.
+
+(observable ko hmesha tb use krte hai jb asynchronous data load and handle krna ho)
+1. when data is fetch from api or server then we use observable (for asynchronous data handling)
+2. we use observable  in preloaded modules to handle the asynchronous loading of data.
+preloading modules is technique used to load modules in the background before they are actually needed,to improve the 
+performance and user experience of an application.
+
+when we use observables in preloading modules , we can
+
+--> load data asynchronously in the background
+--> handle error and retries
+--> use operators to transform and manipulate the data
+--> use the async pipe to render the data in the template
+
+
+for asynchronour we use async pipe,observable,promises,subscribe
+
+
+
+
+
+
+
+observable background story
+
+             line of code
+application    --------
+               --------                                       request
+               -------- server request                     -------------->  server
+               --------                                        response
+               --------                                     <--------------
+
+third line pr server ko request bhejne ka code likha hua tha aur filhal vo request server k pass gyi aur baki code 
+execute hona stop ho gya aur vo tb tk stop nhi hoga jb tk response n aa jaye so thst is not efficient
+
+
+                                             httpClient
+     line of code                                |
+application    --------                          |
+               --------                          |                          request
+               -------- server request        observable                  -------------->  server
+               --------                                                   response
+               --------                                                  <--------------
+
+httpclient introduce hua yeh problem solve krne k liye vo obervale ko yha rkh deta hai aur vo obervable sare req and response
+ko observe krta hai mtlb sara req res ka data obervable apne pass rkhta hai..
+
+response object
+and 
+request object  are observables which means they can hold multiple values over time.
+
+the observable contains information about the request such as url,headers and body
+the observable contains information about the response such as status code,headers,and body
+
+
+
+if we want to use this obervable holding data ... then we can use subscribe method and async pipe?
+thats correct,
