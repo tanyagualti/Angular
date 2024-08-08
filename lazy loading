@@ -1,0 +1,63 @@
+//module loads on user demand
+
+command of making module
+ng g m user --routing
+it gives two files
+1. user.module.ts
+2. user-routing.module.ts
+
+then we make the component in this module
+ng g c user/list 
+
+now automatically 
+component are import in user.module.ts 
+but in eager loading or other wise we have to import the user module into app.module.ts then this module component content
+show in website it is imp
+
+
+but in lazy loading we complete this process dynamically when this component use by user then dynamically import user module
+in app.module.ts
+
+
+in app-routing.module.ts
+{path:'user',loadChildren:()=>(import('./user/user.module')).then(mod => mod.UserModule)}, //dynamic import for lazy loading
+
+path
+loadChildren is property for use lazy loading
+()=> return import() method (this method is javascipt method use for dynamic import the module)
+
+
+.then(mod => mod.UserModule):
+
+This part handles the promise that the import() function returns. When the user.module is successfully loaded, the promise resolves with the mod reference, which represents the module that was imported.
+The mod.UserModule notation accesses the UserModule class (or variable) that is exported from the user.module.ts file. By returning this, the Angular Router knows which module to load and instantiate.
+
+
+in user.module.ts
+import { ListComponent } from './list/list.component';
+
+@NgModule({
+  declarations: [
+
+    ListComponent
+  ],
+  imports: [
+    CommonModule,
+    UserRoutingModule
+  ]
+})
+
+in user-routing.module.ts
+const routes: Routes = [
+{
+  path:'list',component:ListComponent
+}
+
+  ];
+
+
+//build the link in website
+
+<li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" tabindex="2" routerLink="/user/list">list</a> //user is module routing name list is component routing name
+      </li>
