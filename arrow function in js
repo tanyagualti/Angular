@@ -1,0 +1,27 @@
+arrow function syntax:- let value=()=>{}
+
+//way onne
+const add = (a, b) =>{
+return a+b;
+}
+//way two
+const add = (a, b) => a + b;
+
+//way three
+const add = (a, b) => (a + b);
+
+these three working as same 
+agr curly bracket lgaoge toh return likhna pdega other wise nhi
+
+
+//agr hme object return krwana hai toh curly k sath return hoga hi nhi undefined ayga
+const two=()=>{
+user:"tanya"
+}
+
+//bracket me wrape krna hi pdega
+const two=()=>({user:"tanya"})
+
+console.log(two());
+
+console.log(two()); 
