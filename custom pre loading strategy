@@ -3,7 +3,9 @@ then make a custom service
 
 and implement PreloadingStrategy interface
 
-
+in custom-preloading service file
+import { PreloadingStrategy ,Route} from '@angular/router';
+import { Observable,of } from 'rxjs';
 export class CustomPreloadingService implements PreloadingStrategy {
 
  preload(route: Route, fn: () => Observable<any>): Observable<any>{
