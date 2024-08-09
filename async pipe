@@ -1,0 +1,4 @@
+normally when i get the data from server or api then we have to use observable and subscribe 
+but for reducing this code we use async pipe 
+
+when we use async pipe no need to subscribe data
