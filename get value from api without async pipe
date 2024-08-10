@@ -26,10 +26,10 @@ getData():Observable<Doctor[]>{  //when you use Type observable then you are tel
 
 //register.component.ts
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { Doctor } from '../../interfaces/doctor';
 import { IntrfaceService } from '../../services/intrface.service'; //import the above service bcz we have to use method of this service and show into this component template
-import {Observable} from 'rxjs';
+import {Observable,,Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -40,15 +40,38 @@ export class RegisterComponent implements OnInit {
 
   constructor(private service:IntrfaceService) {} //make the instance of service which helps to call the method
 
+
+
+//content$ me abhi koi value nhi dali hui toh error show hogi it is not initialize so hum ! mark use krnge aur exclamation mark yeh btana hai ki future me definately yha value dalegi(!:: Tells TypeScript that the property will definitely be assigned a value before it's used, even though it's not initialized immediately.)
   content$!:Observable<Doctor[]>; //This is the name of the property. The dollar sign ($) is a common naming convention in Angular (and in reactive programming in general) to indicate that the variable is an Observable. This is not required but is a useful convention to signal that content$ will not hold a static value but an Observable.
-  doctors:Doctor[]=[];
+  doctors:Doctor[]=[]; //we make an variable which contain the array and type is doctor
+  subscription!:Subscription;   //that is varibale type is subscription 
+bcz hme unsubscribe krna hai toh hme isi type k varible ki jrurt pdegi
+
 
   ngOnInit(): void {
     
-       this.content$=this.service.getData();
-       this.content$.subscribe((result)=>{
-       this.doctors = result;
+       this.content$=this.service.getData();    //getData returns an observable and obviously this data hold only observable variable that is $content
+      this.subscription =  this.content$.subscribe((result)=>{      //that observable need to subscribe and there result(data) is in array form 
+       this.doctors = result;  //so result data assign in array doctor variable
        })
   }
-
+ngOnDestroy():void{
+if(this.subscription){
+  this.subscription.unsubscribe(); //unsubscribe the subscribe (This is important for preventing memory leaks, )A memory leak in programming refers to a situation where a computer program retains memory that is no longer needed, causing it to consume more memory than necessary.
 }
+}
+}
+
+
+
+register.component.html
+
+<div *ngFor="let val of doctors">
+     <p>{{val.name}}</p>
+</div>
+
+
+//it all works correct but without async pipe (but this code becomes too lengthy bcz all code of subscribe written manually)
+
+//but in async pipe its done automatically (subscribe desubscribe all)
