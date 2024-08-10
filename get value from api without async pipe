@@ -1,0 +1,54 @@
+important note:observable type is used to represent asyynchronous data streams.
+
+//make a service file and write the code
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; //The HttpClient service in Angular is used to make HTTP requests to a backend server.(it provides http services)
+import {Observable} from 'rxjs'; //generally  An Observable is like a collection that arrives over time.(yeh values ko collect krke rkh leta hai immediately value provide nhi krata)
+import {Doctor} from '../interfaces/doctor'; //its a custom interface making by me
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class IntrfaceService {
+
+
+constructor(private http:HttpClient){} //here make the instance of httpClient which helps to fetch the method get 
+
+getData():Observable<Doctor[]>{  //when you use Type observable then you are telling angular that the getData() method returns an obervable  . <Doctor[]> that indicates the type of data that the observable emits.in this case,its an array of book objects
+     return this.http.get<Doctor[]>('http://localhost:3000/doctor'); //when you subscribe to the observable return by getData(),you can expect to receive an array of book objects
+}
+
+}
+
+
+
+
+//register.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { Doctor } from '../../interfaces/doctor';
+import { IntrfaceService } from '../../services/intrface.service'; //import the above service bcz we have to use method of this service and show into this component template
+import {Observable} from 'rxjs';
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
+})
+export class RegisterComponent implements OnInit {
+
+  constructor(private service:IntrfaceService) {} //make the instance of service which helps to call the method
+
+  content$!:Observable<Doctor[]>; //This is the name of the property. The dollar sign ($) is a common naming convention in Angular (and in reactive programming in general) to indicate that the variable is an Observable. This is not required but is a useful convention to signal that content$ will not hold a static value but an Observable.
+  doctors:Doctor[]=[];
+
+  ngOnInit(): void {
+    
+       this.content$=this.service.getData();
+       this.content$.subscribe((result)=>{
+       this.doctors = result;
+       })
+  }
+
+}
