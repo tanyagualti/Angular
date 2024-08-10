@@ -1,0 +1,56 @@
+.service.ts file
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Doctor} from '../interfaces/doctor';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+
+
+export class IntrfaceService {
+
+
+constructor(private http:HttpClient){}
+
+getData():Observable<Doctor[]>{
+     return this.http.get<Doctor[]>('http://localhost:3000/doctor');
+}
+
+}
+
+
+
+//.compoent.ts file   (not need for subscribe the observable bcz we use async pipe and this pipe automatocally manage subscribe and unsubscribe)
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Doctor } from '../../interfaces/doctor';
+import { IntrfaceService } from '../../services/intrface.service';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
+})
+export class RegisterComponent implements OnInit {
+
+  constructor(private service: IntrfaceService) {}
+
+  content$!: Observable<Doctor[]>;   bcz of async pipe code become too simple
+
+  ngOnInit(): void {
+    this.content$ = this.service.getData();
+  }
+
+}
+
+
+// .component.html
+
+<div *ngFor="let val of content$ | async">  //async pipe always use in html template
+     <p>{{val.name}}</p>
+</div>
+
