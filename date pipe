@@ -1,0 +1,54 @@
+{{ value_expression | date [ : format [ : timezone [ : locale ] ] ] }}
+
+value | date : format : timezone : locale
+
+Exported from
+CommonModule
+  
+  input value can be string number and date
+  value	string | number | Date 
+
+
+
+'short'	'M/d/yy, h:mm a'	6/15/15, 9:03 AM
+'medium'	'MMM d, y, h:mm:ss a'	Jun 15, 2015, 9:03:01 AM
+'long'	'MMMM d, y, h:mm:ss a z'	June 15, 2015 at 9:03:01 AM GMT+1
+'full'	'EEEE, MMMM d, y, h:mm:ss a zzzz'	Monday, June 15, 2015 at 9:03:01 AM GMT+01:00
+
+  M->month 
+  d->date
+  y->year
+  h->hour
+  m->minutes
+  s->seconds
+  a->am,pm
+  E->days
+  z->time zone (IST,EST,GMT)
+
+
+
+
+<div class="display-1">Date pipe</div>
+<div>{{date}}</div>
+<div>short : {{date | date : "short"}}</div>
+<div>medium : {{date | date : "medium"}}</div>
+<div>long : {{date | date : "long"}}</div>
+<div>full : {{date | date : "full"}}</div>
+<div>short date : {{date | date : "shortDate"}}</div>
+<div>short time : {{date | date : "shortTime"}}</div>
+<div>medium date : {{date | date : "mediumDate"}}</div>
+<div>medium time : {{date | date : "mediumTime"}}</div>
+<div>long date : {{date | date : "longDate"}}</div>
+<div>long time : {{date | date : "longTime"}}</div>
+<div>full date : {{date | date : "fullDate"}}</div>
+<div>full time : {{date | date : "fullTime"}}</div>
+<div>{{date | date: "dd/MM/yyyy"}}</div>
+<div>{{date | date: "medium" : "EAT" : "cs"}}</div>
+
+
+  // in ts file
+  import { registerLocaleData } from '@angular/common';
+import localeCs from '@angular/common/locales/cs';
+
+// Register locale data
+registerLocaleData(localeCs, 'cs'); //cs for crezh local time
