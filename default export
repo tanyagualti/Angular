@@ -1,0 +1,16 @@
+Default Exports:
+
+A module can have a single default export, which can be imported without needing to specify the exact name.
+
+// logger.js
+export default function log(message) {
+  console.log(message);
+}
+
+// app.js
+import log from './logger.js';
+
+log('Hello, world!'); // Logs: Hello, world!
+
+//one hi default rhega pure module me toh fir use call krne k liye exact name ki jrurt nhi pdegi bs kud ki import k time
+// koi name dedo aur call krlo
