@@ -1,0 +1,41 @@
+CommonJS Modules (used in Node.js):
+
+Use require() to import and module.exports to export.
+Example:
+javascript
+Copier le code
+// math.js (CommonJS)
+const add = (a, b) => a + b;
+module.exports = { add };
+
+
+
+ES Modules (ESM, standardized in ES6/ES2015):
+
+Use import and export syntax.
+Example:
+javascript
+Copier le code
+// math.js (ESM)
+export const add = (a, b) => a + b;
+
+
+-- By default, these two systems don't work seamlessly together because they handle exports differently. ES Modules use default exports, while CommonJS doesn't. This can cause issues when trying to import CommonJS modules in TypeScript using ES Module syntax.
+
+-- When "esModuleInterop": true is set, TypeScript allows you to use ES Module syntax to import CommonJS modules. This flag introduces two key behaviors:
+
+
+Compatibility with Default Exports:
+
+-- It allows you to import CommonJS modules using ES Module import syntax, even if the CommonJS module doesn't have a default export.
+
+-- TypeScript will automatically add a synthetic default export to the CommonJS module, so you can do:
+
+typescript
+
+import express from 'express'; // Works with esModuleInterop: true
+-- jb true hai esModuleInterop toh hum ase import kr skte hai
+
+otherwise
+
+import * as express from 'express'; // The default export is not directly available
