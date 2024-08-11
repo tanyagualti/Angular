@@ -1,0 +1,32 @@
+{{ value_expression | currency [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] }}
+
+// agr hme locale dalna hai toh uske phle ki sari values dalni pdngi ,we can't skip
+
+value | currency : code : display : digitsinfo : locale
+
+  currency-code : means kis country ki cuurency show krwani hai uska code
+like for india INR
+for Australian dollar AUD
+
+kon c country ka symbol lgega yeh code decide krta hai
+
+display:me yeh pta chalta hai ki apko direct code show krwana hai ya symbol --symbol-narrow: Use the narrow symbol for locales that have two symbols for their currency.
+
+  digitinfo: isme decimal k bd kitni value show krni hai kitni phle yeh decide hota hai
+
+locale : isme locally kese money reprsent hoti hai uske according user ko show krte hai
+
+
+<div>{{ salary | currency: 'INR': 'symbol': '5.0-0': 'cs' }}</div>
+  in above example INR use bcz i want show indian currency symbol , 5 digit , cs is crezh ab crezh country me representaion
+kese hoti hai money k uske hisab s show hoga with indian symbol
+
+27 373 INR  //crezh me symbol dalne k bd bhi code reprent ho rha hai bcz wha ki representation asi hi hogi
+
+// .ts file
+  import { Component,LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeCs from '@angular/common/locales/cs';
+
+// Register locale data
+registerLocaleData(localeCs, 'cs');
