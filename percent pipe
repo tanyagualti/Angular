@@ -1,0 +1,22 @@
+{{ value_expression | percent [ : digitsInfo [ : locale ] ] }}
+val | percent : dgitinfo : locale
+
+Exported from
+CommonModule
+
+<div>{{per | percent}}</div>  //70%    sirf percent pipe lgane s direct 70% aa rha hai
+<div>{{per | percent : '2.2-5'}}</div> //69.93969%       //digit info s decimal me percentage aa rhi hai
+<div>{{per | percent : '2.2-5' : 'cs'}}</div> //69,93969 %       //aur locale lgane s yeh bta rha hai ki cs (crezh) me kese percentae show krayi jati hai
+
+. k bjay , lgaya jata hai
+
+(* .ts file *)
+import { registerLocaleData } from '@angular/common';
+import localeCs from '@angular/common/locales/cs';
+
+// Register locale data
+registerLocaleData(localeCs, 'cs');
+per=Math.random();  //yeh 0 and 1 k undr values provide krwata hai 0 means 0% and 1 means 100%
+
+
+agr percent pipe me 0 to 1 k beach value leke ao toh vo percentage me apne ap convert kr denge
