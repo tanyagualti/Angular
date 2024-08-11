@@ -1,0 +1,49 @@
+{{ value_expression | i18nSelect : mapping }}
+mapping is an object (object yeh  define krta hai ki kon sa text apko ui pr dikhna hai.
+value pr jo text show ho rha k uske bjay kon sa dusra text ui pr dikhna chiye vo object s nikal k vo dekhta hai
+
+//this is the example of static translation
+
+component.ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+  language:string=navigator.language;  //this code gets the browser default language
+  constructor() {
+    console.log(this.language); //print language to check
+   }
+
+  ngOnInit(): void {
+  }
+
+  
+  
+gender="F";  //value of pipe
+
+userLangEnObj:any={ //for english language
+
+  M :'Male',
+  F : 'Female',
+a: 'age'
+  
+};
+userLangFrObj:any={  //for french language
+
+  M :'mâle',
+  F : 'femelle',
+  a: 'âge'
+  
+};
+
+}
+
+
+.html
+<h1>{{'a' | i18nSelect : language == 'fr' ? userLangFrObj : userLangEnObj }}</h1> //normal label value
+<p>{{gender | i18nSelect : language == 'fr' ? userLangFrObj : userLangEnObj }}</p>
+that change the object acc to language of browser 
