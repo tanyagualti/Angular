@@ -47,3 +47,122 @@ userLangFrObj:any={  //for french language
 <h1>{{'a' | i18nSelect : language == 'fr' ? userLangFrObj : userLangEnObj }}</h1> //normal label value
 <p>{{gender | i18nSelect : language == 'fr' ? userLangFrObj : userLangEnObj }}</p>
 that change the object acc to language of browser 
+
+
+
+
+making json file
+json file make in asset folder
+en.json file
+
+ {
+    " M ": "Male",
+    "F": "Female",
+    "a": "age",
+    "val":"Angular is running in development mode. Call enableProdMode() to enable production mode"
+}
+
+fr.json
+
+
+{
+    "M": "mâle",
+    "F": "femelle",
+    "a": "âge",
+    "val":"Angular fonctionne en mode développement. Appelez EnableProdMode() pour activer le mode production"
+}
+
+
+import { Component, OnInit } from '@angular/core';
+
+import * as fr from 'e:/practice/src/assets/i18n/fr.json'; //import the json files
+import * as en from 'e:/practice/src/assets/i18n/en.json';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+  language: string = typeof navigator !== 'undefined' ? navigator.language : 'en';  //check if navigator agr undefined nhi hai toh jo browser ki language hai (navigator.language) whi translate hogi otherwise 'en' english me hi value dikhegi
+  gender: string = "F";
+
+  enLanguage: { [key: string]: string } = (en as any).default || en;  //this line explain in bellow
+  frLanguage: { [key: string]: string } = (fr as any).default || fr;
+
+
+  constructor() {;
+  }
+
+  ngOnInit(): void {}
+}
+
+
+.html
+<h1>{{'a'  | i18nSelect : language == 'fr' ? frLanguage : enLanguage }}</h1>
+<p>{{gender | i18nSelect : language == 'fr' ? frLanguage : enLanguage }}</p>
+<p>{{'val' | i18nSelect : language == 'fr' ? frLanguage : enLanguage}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What's Happening?
+Importing a JSON File:
+
+When you import a JSON file like en.json in TypeScript, how the contents of that file are structured after import can vary.
+Sometimes, the JSON data is imported directly as a plain object.
+Other times, it's wrapped inside another object with a default property.
+This depends on how TypeScript and your build tools (like Webpack) handle module imports.
+
+Two Possible Structures:
+
+Case 1: The imported en object might look like this:
+
+typescript
+Copier le code
+const en = {
+  "F": "Female",
+  "M": "Male",
+  "a": "Hello"
+};
+Here, en is a simple object with keys like "F", "M", and "a".
+
+Case 2: The imported en object might look like this:
+
+typescript
+Copier le code
+const en = {
+  default: {
+    "F": "Female",
+    "M": "Male",
+    "a": "Hello"
+  }
+};
+Here, the data is inside a default property, so you'd need to access it using en.default.
+
+Why Do We Use (en as any).default || en?
+This expression is a way to handle both possible cases:
+
+(en as any).default:
+
+This tries to access default inside en.
+The as any part just tells TypeScript not to worry about checking the type when we're trying to access default.
+|| en:
+
+The || (OR) operator says, "If en.default exists, use it; if not, just use en itself."
+This ensures that whether the data is directly in en or inside en.default, we get the correct data.
+Simplified Explanation:
+Problem: The imported en might have the data directly, or it might have the data inside a default property.
+Solution: Use (en as any).default || en to handle both possibilities. This way, you always get the data, regardless of how it's structured after import.
+In simpler terms, this code makes sure that you get the correct data from the JSON file no matter how it's imported, without needing to worry about the different ways it might be structured.
