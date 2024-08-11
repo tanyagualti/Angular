@@ -166,3 +166,39 @@ Simplified Explanation:
 Problem: The imported en might have the data directly, or it might have the data inside a default property.
 Solution: Use (en as any).default || en to handle both possibilities. This way, you always get the data, regardless of how it's structured after import.
 In simpler terms, this code makes sure that you get the correct data from the JSON file no matter how it's imported, without needing to worry about the different ways it might be structured.
+
+
+
+
+
+
+
+
+if we enable in ts.config file
+"esModuleInterop": true, 
+"resolveJsonModule": true, 
+
+
+import { Component, OnInit } from '@angular/core';
+
+import fr from 'e:/practice/src/assets/i18n/fr.json';
+import en from 'e:/practice/src/assets/i18n/en.json'; then we import like this
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+  language: string = typeof navigator !== 'undefined' ? navigator.language : 'en';
+  gender: string = "F";
+
+  enLanguage: { [key: string]: string } = en; //and no need to handle default possibility here
+  frLanguage: { [key: string]: string } = fr;
+
+
+  constructor() {;
+  }
+
+  ngOnInit(): void {}
+}
