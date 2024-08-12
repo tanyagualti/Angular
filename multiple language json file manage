@@ -1,0 +1,77 @@
+(* service.ts *)
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TranslationService {
+(* make the http client instance for call get method for fetch the data from language json file *)
+  constructor(private http:HttpClient) { } 
+(*   object specific language object are hold in future *)
+  private trans: any = {};  
+(*  loadLanguage method returns observable collection  *)
+  loadLanguage(language:string):Observable<any>{
+    return this.http.get(`assets/i18n/${language}.json`); //this is the path  language-name place dynamicallly
+
+  }
+  
+  setTranslations(language: string, translations: any): void {
+(*     jo value parameters k through ayi hai usko this.trans me assign kra *)
+    this.trans = translations;   
+    
+  }
+  getTranslation(key: string, language: string): string {
+
+    return this.trans?.[key] || key;
+(*     Bracket notation is used to access a property of an object dynamically. The key can be a variable, and its value determines which property of the object is accessed. *)
+(* Here, key is a variable, and this.trans?.[key] retrieves the value of the property on the trans object that corresponds to the value of key. *)
+
+  }
+}
+
+
+(* component.ts *)
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
+import { Component, OnInit } from '@angular/core';
+import {TranslationService} from '../services/translation.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+  language:string=navigator.language;
+ 
+  constructor(private translationService:TranslationService) { }
+  
+
+  ngOnInit(): void {
+    this.translationService.loadLanguage(this.language).subscribe((translations)=>{
+      (* after subscribe that data are receive *)
+(* {head: 'Start Your Day With a <br> Fresh Coffee', line: 'Coffee and friends make the perfect blend.Coffee : the most <br> important meal of the day', btn_name: 'shop now',
+heading: 'Start Your Day With a  Fresh Coffee'} *)
+      this.translationService.setTranslations(this.language,translations);  yeh data and language setTranslation method ko transfer kr diya
+    });
+
+    
+  }
+(* call translate method in tags with key which is use in json file  *)
+  translate(key: string): string { 
+    return this.translationService.getTranslation(key, this.language);
+  }
+  
+fun(){
+    alert("Shop Now");
+  }
+  run(name:string){
+alert(name);
+  }
+}
+
+
+
+
+
