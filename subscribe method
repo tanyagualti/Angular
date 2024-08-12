@@ -1,0 +1,21 @@
+subscribe method which is use with observable 
+subscribe method exist in rsjx library
+
+# i try to use that code but this is wrong
+value:Subscription=this.translationService.loadLanguage(this.language).subscribe();
+     this.translationService.setTraslations(this.language,this.value);
+
+
+     Use of Callbacks: The subscribe method's first argument is a callback function that receives the
+     data emitted by the observable, which you should use to set the translations.
+
+     we have to use call back function as a argument for receive the data of observerable
+     # correct code
+     this.translationService.loadLanguage(this.language).subscribe(
+  (translations) => {
+    this.translationService.setTranslations(this.language, translations);
+  },
+  (error) => {
+    console.error('Error loading language:', error);
+  }
+);
