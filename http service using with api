@@ -1,0 +1,56 @@
+api use with postman inseptor and json server
+run command: json-server --watch db.json
+
+  in previous version :  this class name is httpServices but now name is httpClient
+
+4 methods are there 
+1- post
+  2- get
+  3-delete
+  4- put
+
+
+
+// post method 
+
+  post method is used to post(send) the data into api file
+   yeh method jha bhi call hoga vha parameter me data ayga aur vo data post method me jyga as a parameter 
+post method has two prameters first is api url and second is data body 
+then we have to subscribe for using this data
+   users(data: object) {
+    return this.http.post('http://localhost:3000/user', data).subscribe((result) => {
+    console.log(result);
+  });
+
+
+
+//get method
+
+     // service file
+in get method we also want to subscribe  but hmne yha islia use nhi kiya qki async method use kiya hai aur wha jrurt nhi hoti vo automatically kud subscribe kr deta hai
+getData():Observable<User[]>{
+ return this.http.get<User[]>('http://localhost:3000/user');
+}
+// ts file
+ this.userData$= this.user.getData();  call that method where we use (by making instance of service where getData method was define)
+// html file
+	<tr *ngFor="let user of userData$ | async">
+				<td>{{user.id}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.email}}</td>
+				<td><button (click)="delete(user.id!)" class="btn btn-primary">Delete</button></td>
+			</tr>
+//delete method
+   // service file
+deleteData(id:number){
+return this.http.delete(`http://localhost:3000/user/${id}`);
+
+}
+// html file
+<td><button (click)="delete(user.id!)" class="btn btn-primary">Delete</button></td>
+// ts file
+ delete(id:number){
+   
+    this.user.deleteData(id).subscribe((response)=>{
+          console.log("delete succesfully",response);
+    });
